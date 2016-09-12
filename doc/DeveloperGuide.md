@@ -45,8 +45,10 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | update a person's details | easily update new details without having to delete and re-add the same person with all the details
 `* *` | user | hide [private contact details](#private-contact-detail) by default | to minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons in the address book | find persons by prefix | locate a person in case I forget their full name
 
 
 ## Appendix B : Use Cases
@@ -74,12 +76,47 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Edit tag
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to change an existing tag to a specified name of a specific person in the list
+4. AddressBook confirms the change with the user
+5. User confirms the change
+6. AddressBook changes the tag to the specified name for the person <br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+3b. There is no existing tag for the specified person
+
+> 3b1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+3c. The specified name by user is too long
+
+> 3c1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should respond within 1 second of entering command.
+6. Should be easy for non-technical users.
 
 ## Appendix D : Glossary
 
